@@ -34,8 +34,16 @@ public class Bullet : MonoBehaviour
         // Уничтожаем пулю при столкновении
         if (entityType != collidedEntity)
         {
+            if (collidedEntity == EntityType.Player)
+            {
+                targetObject.GetComponent<PlayerController>().OnPlayerDeath();
+            }
+            else
+            {
+                Destroy(targetObject);
+            }
+
             Destroy(gameObject);
-            Destroy(targetObject);
         }
     }
 }

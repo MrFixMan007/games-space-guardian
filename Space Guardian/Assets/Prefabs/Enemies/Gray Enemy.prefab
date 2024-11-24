@@ -157,8 +157,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 7144552456228940591, guid: cbed0af15982ebb47aecd71754e367c6, type: 3}
   spawnPoint1: {fileID: 3427061854436594111}
   spawnPoint2: {fileID: 6331117437761045062}
-  fireRate: 1.2
-  bulletSpeed: 9
+  fireRate: 2.4
+  bulletSpeed: 8
 --- !u!114 &3729400871871186476
 MonoBehaviour:
   m_ObjectHideFlags: 0

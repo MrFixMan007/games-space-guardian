@@ -38,4 +38,10 @@ public class PlayerController : MonoBehaviour, IEntity
 
         shooter.Shoot(Vector2.up);
     }
+
+    public void OnPlayerDeath()
+    {
+        Destroy(gameObject);
+        FindObjectOfType<PauseMenuController>().ShowOnPlayerDeath();
+    }
 }
