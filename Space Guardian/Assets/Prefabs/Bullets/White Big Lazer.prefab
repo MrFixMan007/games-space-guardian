@@ -99,6 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e709db6cdfcd44e5bf3ffee4fce9b3f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  entityType: 0
+  explosionPrefab: {fileID: 447755468188257795, guid: 172414ef6e1a15642b694a4bef4fc7b2, type: 3}
   lifetime: 5
 --- !u!50 &611157425714735748
 Rigidbody2D:
