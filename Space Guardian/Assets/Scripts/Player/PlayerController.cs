@@ -12,8 +12,10 @@ public class PlayerController : MonoBehaviour
         mainCamera = Camera.main;
 
         // Рассчитываем границы экрана в мировых координатах
-        screenBounds =
-            mainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, mainCamera.transform.position.z));
+        if (mainCamera != null)
+            screenBounds =
+                mainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height,
+                    mainCamera.transform.position.z));
 
         playerWidth = GetComponent<SpriteRenderer>().bounds.extents.x;
     }
