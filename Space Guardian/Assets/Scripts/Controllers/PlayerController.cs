@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
     private Camera mainCamera;
     private Vector2 screenBounds;
     private float playerWidth;
+    private Shooter shooter;
 
     void Start()
     {
@@ -18,9 +19,10 @@ public class PlayerController : MonoBehaviour
                     mainCamera.transform.position.z));
 
         playerWidth = GetComponent<SpriteRenderer>().bounds.extents.x;
+        shooter = GetComponent<Shooter>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         // Управление движением игрока
         float moveHorizontal = Input.GetAxis("Horizontal");
@@ -31,5 +33,7 @@ public class PlayerController : MonoBehaviour
         Vector3 clampedPosition = transform.position;
         clampedPosition.x = Mathf.Clamp(clampedPosition.x, -screenBounds.x + playerWidth, screenBounds.x - playerWidth);
         transform.position = clampedPosition;
+
+        shooter.Shoot(Vector2.up);
     }
 }
