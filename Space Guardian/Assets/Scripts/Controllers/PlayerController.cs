@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IEntity
 {
+    public EntityType entityType => EntityType.Player;
+
     public float speed = 5f;
     private Camera mainCamera;
     private Vector2 screenBounds;
