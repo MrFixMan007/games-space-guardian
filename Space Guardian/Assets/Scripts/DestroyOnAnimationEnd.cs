@@ -3,10 +3,13 @@
 public class DestroyOnAnimationEnd : MonoBehaviour
 {
     private Animator animator;
+    [Header("Audio Settings")] public AudioClip shootSound; // Звук стрельбы
+    private AudioSource audioSource; // Источник звука
 
     void Start()
     {
         animator = GetComponent<Animator>();
+        PlayShootSound();
     }
 
     void Update()
@@ -20,5 +23,14 @@ public class DestroyOnAnimationEnd : MonoBehaviour
 
         // Если анимация завершена, уничтожаем объект
         Destroy(gameObject);
+    }
+
+    // Метод для воспроизведения звука стрельбы
+    private void PlayShootSound()
+    {
+        if (audioSource != null && shootSound != null)
+        {
+            audioSource.PlayOneShot(shootSound);
+        }
     }
 }
