@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Shooter : MonoBehaviour
 {
+    [SerializeField] private EntityType entityType;
+
     public GameObject bulletPrefab; // Префаб пули
     public Transform spawnPoint1; // Первая точка спавна пули
     public Transform spawnPoint2; // Вторая точка спавна пули
@@ -42,7 +44,7 @@ public class Shooter : MonoBehaviour
         Bullet bulletScript = bullet.GetComponent<Bullet>();
         if (bulletScript != null)
         {
-            bulletScript.Initialize(direction, speed);
+            bulletScript.Initialize(direction, speed, entityType);
             bullet.SetActive(false); // Делаем пулю невидимой сразу
         }
 

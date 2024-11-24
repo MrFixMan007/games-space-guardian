@@ -2,15 +2,18 @@
 
 public class Bullet : MonoBehaviour
 {
+    public EntityType entityType;
+
     private Vector2 direction; // Направление полёта
     private float speed; // Скорость полёта
 
     public float lifetime = 5f; // Время жизни пули в секундах
 
-    public void Initialize(Vector2 dir, float spd)
+    public void Initialize(Vector2 dir, float spd, EntityType type)
     {
         direction = dir.normalized;
         speed = spd;
+        entityType = type;
 
         // Уничтожить пулю через lifetime секунд
         Destroy(gameObject, lifetime);
@@ -24,7 +27,15 @@ public class Bullet : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        GameObject targetObject = collision.gameObject;
+        // Получаем объект, с которым произошёл контакт
+        EntityType collidedEntity = targetObject.GetComponent<IEntity>().entityType;
+
         // Уничтожаем пулю при столкновении
-        Destroy(gameObject);
+        if (entityType != collidedEntity)
+        {
+            Destroy(gameObject);
+            Destroy(targetObject);
+        }
     }
 }

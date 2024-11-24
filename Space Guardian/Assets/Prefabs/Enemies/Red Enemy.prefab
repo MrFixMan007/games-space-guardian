@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 2895758507442129458}
   - component: {fileID: -2453674066526582075}
   - component: {fileID: 1029226068954916891}
-  m_Layer: 0
+  - component: {fileID: 5379888972815838672}
+  m_Layer: 7
   m_Name: Red Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,14 +47,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5057679678496734597}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -90,6 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e77e1744e13349b79fe2128b52d4fc0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  entityType: 1
   bulletPrefab: {fileID: 7144552456228940591, guid: a3e3d2cf11ad3d94c8766b0eb37dd645, type: 3}
   spawnPoint1: {fileID: 4907229823818656285}
   spawnPoint2: {fileID: 2042640872461054321}
@@ -107,6 +109,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 906574b6549344a98ba53f8265e9f69a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!61 &5379888972815838672
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5057679678496734597}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.82}
+  m_EdgeRadius: 0
 --- !u!1 &7585574824424885021
 GameObject:
   m_ObjectHideFlags: 0
@@ -116,7 +163,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4907229823818656285}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Right Bullet Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,7 +194,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2042640872461054321}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Left Bullet Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,7 +226,7 @@ GameObject:
   m_Component:
   - component: {fileID: 570075685346398969}
   - component: {fileID: 128304115976593458}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ship_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

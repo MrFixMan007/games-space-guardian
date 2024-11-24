@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 
-public class EnemyController : MonoBehaviour
+public class EnemyController : MonoBehaviour, IEntity
 {
+    public EntityType entityType => EntityType.Enemy;
+
     private Shooter shooter;
 
     void Start()
@@ -16,4 +18,5 @@ public class EnemyController : MonoBehaviour
             shooter.Shoot(Vector2.down);
         }
     }
+
 }
