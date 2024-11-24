@@ -3,6 +3,7 @@
 public class Bullet : MonoBehaviour
 {
     public EntityType entityType;
+    public GameObject explosionPrefab;
 
     private Vector2 direction; // Направление полёта
     private float speed; // Скорость полёта
@@ -34,6 +35,7 @@ public class Bullet : MonoBehaviour
         // Уничтожаем пулю при столкновении
         if (entityType != collidedEntity)
         {
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             if (collidedEntity == EntityType.Player)
             {
                 targetObject.GetComponent<PlayerController>().OnPlayerDeath();
