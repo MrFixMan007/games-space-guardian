@@ -44,7 +44,7 @@ public class Bullet : MonoBehaviour, IEntity
             }
             else if (collidedEntity != EntityType.Dispawner)
             {
-                Destroy(targetObject);
+                targetObject.GetComponent<EnemyController>().Destroy();
                 Destroy(gameObject);
             }
         }
