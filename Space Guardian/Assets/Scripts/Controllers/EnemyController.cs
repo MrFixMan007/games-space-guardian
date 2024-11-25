@@ -2,7 +2,7 @@
 
 public class EnemyController : MonoBehaviour, IEntity
 {
-    public EntityType entityType => EntityType.Enemy;
+    public EntityType EntityType => EntityType.Enemy;
 
     private Shooter shooter;
 
@@ -18,5 +18,4 @@ public class EnemyController : MonoBehaviour, IEntity
             shooter.Shoot(Vector2.down);
         }
     }
-
 }

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -6,9 +7,21 @@ public class EnemySpawner : MonoBehaviour
     public float spawnY = 4.2f; // Высота спавна
     private readonly float cellSize = 72f;
 
+    public float spawnInterval = 5f; // Интервал между волнами врагов
+    public float waveInterval = 20f; // Интервал между волнами (можно изменять)
+
     void Start()
     {
-        SpawnEnemies();
+        StartCoroutine(SpawnWaves());
+    }
+
+    IEnumerator SpawnWaves()
+    {
+        while (true) // Бесконечный цикл для спавна волн
+        {
+            SpawnEnemies(); // Спавним врагов
+            yield return new WaitForSeconds(waveInterval); // Ждем перед следующим спавном волны
+        }
     }
 
     void SpawnEnemies()

@@ -1,4 +1,4 @@
 ﻿public interface IEntity
 {
-    EntityType entityType { get; }
+    EntityType EntityType { get; }
 }

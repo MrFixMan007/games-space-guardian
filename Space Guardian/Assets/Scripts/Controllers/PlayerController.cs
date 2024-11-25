@@ -2,7 +2,7 @@
 
 public class PlayerController : MonoBehaviour, IEntity
 {
-    public EntityType entityType => EntityType.Player;
+    public EntityType EntityType => EntityType.Player;
 
     public float speed = 5f;
     private Camera mainCamera;
