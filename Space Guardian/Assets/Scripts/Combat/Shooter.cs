@@ -12,7 +12,7 @@ public class Shooter : MonoBehaviour
     public float fireRate = 0.5f; // Скорость стрельбы (в секундах между выстрелами)
     public float bulletSpeed = 10f; // Скорость пули
 
-    private bool canShoot = true; // Флаг для контроля стрельбы
+    private bool canShoot; // Флаг для контроля стрельбы
 
     [Header("Audio Settings")] public AudioClip shootSound; // Звук стрельбы
     private AudioSource audioSource; // Источник звука
@@ -25,6 +25,7 @@ public class Shooter : MonoBehaviour
         {
             Debug.LogWarning("AudioSource не найден! Добавьте его на объект.");
         }
+        StartCoroutine(Reload());
     }
 
     // Метод для стрельбы

@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Bullet : MonoBehaviour, IEntity
 {
     public EntityType entityType;
+    public EntityType EntityType => entityType;
     public GameObject explosionPrefab;
 
     private Vector2 direction; // Направление полёта
@@ -30,7 +31,7 @@ public class Bullet : MonoBehaviour
     {
         GameObject targetObject = collision.gameObject;
         // Получаем объект, с которым произошёл контакт
-        EntityType collidedEntity = targetObject.GetComponent<IEntity>().entityType;
+        EntityType collidedEntity = targetObject.GetComponent<IEntity>().EntityType;
 
         // Уничтожаем пулю при столкновении
         if (entityType != collidedEntity)
@@ -39,13 +40,13 @@ public class Bullet : MonoBehaviour
             if (collidedEntity == EntityType.Player)
             {
                 targetObject.GetComponent<PlayerController>().OnPlayerDeath();
+                Destroy(gameObject);
             }
-            else
+            else if (collidedEntity != EntityType.Dispawner)
             {
                 Destroy(targetObject);
+                Destroy(gameObject);
             }
-
-            Destroy(gameObject);
         }
     }
 }
